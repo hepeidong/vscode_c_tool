@@ -1,0 +1,28 @@
+{
+  "name": "vscode_c_tool",
+  "version": "1.0.0",
+  "description": "用于vscode创建C/C++项目的工具",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hepeidong/vscode_c_tool.git"
+  },
+  "keywords": [
+    "vscode"
+  ],
+  "author": "HePeiDong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hepeidong/vscode_c_tool/issues"
+  },
+  "homepage": "https://github.com/hepeidong/vscode_c_tool#readme",
+  "bin": {
+    "vscode_c": "./bin/main.js"
+  },
+  "dependencies": {
+    "minimist": "^1.2.8"
+  }
+}
