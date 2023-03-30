@@ -4,8 +4,8 @@ const Fs = require("fs");
 const minimist = require('minimist');
 const { compilerPath } = require('../src/compilerPath');
 const { copy } = require('../src/createProj');
-const { utils } = require('../utils');
 const { join } = require('path');
+const { utils } = require("../src/utils");
 
 const command = utils.getCommand();
 const opts = {};

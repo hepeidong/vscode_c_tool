@@ -1,6 +1,6 @@
 const Fs = require('fs');
-const { utils } = require("../utils");
 const { join } = require('path');
+const { utils } = require('./utils');
 
 function copy(dest, type) {
     if (!Fs.existsSync(dest)) {

@@ -1,6 +1,6 @@
 const Fs = require('fs');
 const { join } = require('path');
-const { utils } = require('../utils');
+const { utils } = require('./utils');
 
 const c_cpp_properties_path = utils.nodeCwd("template/.vscode/c_cpp_properties.json");
 const c_cpp_properties_buffer = Fs.readFileSync(c_cpp_properties_path);

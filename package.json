@@ -1,6 +1,6 @@
 {
   "name": "vscode_c_tool",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "用于vscode创建C/C++项目的工具",
   "main": "main.js",
   "scripts": {
