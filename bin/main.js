@@ -25,13 +25,12 @@ function createProj(path, name, type) {
 
 const cmd = argv._[0];
 if (cmd) {
-    console.log(cmd);
-    console.log(argv);
     if (cmd === command.compilerPath) {
         //编译器安装路径
         const path = argv.p;
         //配置编译器
         compilerPath(path);
+        process.exit();
     }
     else if (cmd === command.create) {
         const name = argv.n;
@@ -48,7 +47,7 @@ if (cmd) {
             //创建C++项目
             createProj(path, name, "cpp");
         }
-
+        process.exit();
     }
 }
 else {

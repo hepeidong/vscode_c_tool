@@ -3,26 +3,32 @@ const { utils } = require("./utils");
 const { join } = require('path');
 
 function copy(dest, type) {
-    Fs.mkdirSync(dest);
+    if (!Fs.existsSync(dest)) {
+        Fs.mkdirSync(dest);
+    }
     const tempPath = utils.cwd("template");
     const files = utils.getFiles(tempPath);
     for (const file of files) {
-        const path = join(tempPath, file);
+        const path = join(tempPath, file); //工具模板文件路径
         if (utils.isDir(path)) {
-            const dirPath = join(dest, ".vscode");
-            if (Fs.mkdirSync(dirPath)) {
+            const configDirPath = join(dest, ".vscode");
+            if (!Fs.existsSync(configDirPath)) {
+                Fs.mkdirSync(configDirPath);
+                console.log(`创建编译配置目录 [.vscode] 到`, dest);
                 const configFiles = utils.getFiles(path);
                 for (const configFile of configFiles) {
-                    Fs.copyFileSync(join(path, configFile), dirPath);
+                    console.log(`生成编译配置文件 [${configFile}] 到`, configDirPath);
+                    Fs.copyFileSync(join(path, configFile), join(configDirPath, configFile));
                 }
             }
         }
         else {
             if (utils.juageFileType(file, type)) {
-                Fs.copyFileSync(path, dest);
+                Fs.copyFileSync(path, join(dest, file));
             }
         }
     }
+    console.log("项目创建成功！");
 }
 
 module.exports.copy = copy;
