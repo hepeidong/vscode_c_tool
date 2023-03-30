@@ -1,6 +1,6 @@
 var Fs = require('fs');
 const { join } = require('path');
-const { getDirname } = require('../getDirname');
+const { getDirname } = require('./getDirname');
 
 
 

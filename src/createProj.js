@@ -1,5 +1,5 @@
 const Fs = require('fs');
-const { utils } = require("./utils");
+const { utils } = require("../utils");
 const { join } = require('path');
 
 function copy(dest, type) {

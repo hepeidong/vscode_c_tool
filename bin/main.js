@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 
+const Fs = require("fs");
 const minimist = require('minimist');
 const { getDirname } = require('../getDirname');
 const { compilerPath } = require('../src/compilerPath');
 const { copy } = require('../src/createProj');
-const { utils } = require('../src/utils');
+const { utils } = require('../utils');
 const { join } = require('path');
 
 const command = utils.getCommand();
@@ -24,6 +25,7 @@ function createProj(path, name, type) {
 }
 
 const cmd = argv._[0];
+
 if (cmd) {
     if (cmd === command.compilerPath) {
         //编译器安装路径
@@ -47,6 +49,12 @@ if (cmd) {
             //创建C++项目
             createProj(path, name, "cpp");
         }
+        process.exit();
+    }
+    else if (argv.v) {
+        const buffer = Fs.readFileSync(utils.cwd("package.json"));
+        const data = JSON.parse(buffer);
+        console.log("v" + data.version);
         process.exit();
     }
 }
