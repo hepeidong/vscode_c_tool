@@ -63,7 +63,7 @@ module.exports.utils = {
     },
 
     getCommand() {
-        const path = this.cwd('command.json');
+        const path = this.nodeCwd('command.json');
         const commandStr = Fs.readFileSync(path).toString();
         const command = JSON.parse(commandStr);
         return command;

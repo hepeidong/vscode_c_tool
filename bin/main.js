@@ -2,7 +2,6 @@
 
 const Fs = require("fs");
 const minimist = require('minimist');
-const { getDirname } = require('../getDirname');
 const { compilerPath } = require('../src/compilerPath');
 const { copy } = require('../src/createProj');
 const { utils } = require('../utils');
@@ -20,7 +19,7 @@ function createProj(path, name, type) {
         copy(join(path, name), type);
     }
     else {
-        copy(join(getDirname(), name), type);
+        copy(utils.cwd(name), type);
     }
 }
 
@@ -52,7 +51,7 @@ if (cmd) {
         process.exit();
     }
     else if (argv.v) {
-        const buffer = Fs.readFileSync(utils.cwd("package.json"));
+        const buffer = Fs.readFileSync(utils.nodeCwd("package.json"));
         const data = JSON.parse(buffer);
         console.log("v" + data.version);
         process.exit();

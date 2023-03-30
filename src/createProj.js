@@ -6,7 +6,7 @@ function copy(dest, type) {
     if (!Fs.existsSync(dest)) {
         Fs.mkdirSync(dest);
     }
-    const tempPath = utils.cwd("template");
+    const tempPath = utils.nodeCwd("template");
     const files = utils.getFiles(tempPath);
     for (const file of files) {
         const path = join(tempPath, file); //工具模板文件路径
